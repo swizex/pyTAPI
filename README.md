@@ -66,7 +66,7 @@ decypted_data = pyTAPI.decrypt_data(_key, _token)
 
 where `_key` is your fernet key, and `_token` is the generated fernet token
 
-### using the custom mysql-client object
+### Using the custom mysql-client object
 
 ```python
 
