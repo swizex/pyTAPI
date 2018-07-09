@@ -7,12 +7,12 @@ without hassle.
 
 so far this api has the following functionalitys:
 
-* Generate a Hash (using the flask_hashing library)
-* Generate a Fernet encryption key (using cryptography.fernet library)
-* Encrypt a bytes array (using cryptography.fernet library)
-* Decrypt a bytes array (using cryptography.fernet library)
-* MysqlClient custom object for faster integration (using mysql-client library)
-* Convert a variable to a string (UTF-8) (Built in Python 3.x libraries)
+* [Generate a Hash (using the flask_hashing library)](#generating-a-hash)
+* [Generate a Fernet encryption key (using cryptography.fernet library)](#generating-a-fernet-key)
+* [Encrypt a bytes array (using cryptography.fernet library)](#encrypting-data)
+* [Decrypt a bytes array (using cryptography.fernet library)](#decrypting-data)
+* [MysqlClient custom object for faster integration (using mysql-client library)](#using-the-custom-mysql-client-object)
+* [Convert a variable to a string (UTF-8) (Built in Python 3.x libraries)](#converting-a-variable-to-string)
 
 to install the latest version of this module, simply use pip to install it
 
