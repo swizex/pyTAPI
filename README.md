@@ -12,6 +12,7 @@ so far this api has the following functionalitys:
 * Encrypt a bytes array (using cryptography.fernet library)
 * Decrypt a bytes array (using cryptography.fernet library)
 * MysqlClient custom object for faster integration (using mysql-client library)
+* Convert a variable to a string (UTF-8) (Built in Python 3.x libraries)
 
 to install the latest version of this module, simply use pip to install it
 
