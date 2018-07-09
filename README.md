@@ -13,7 +13,7 @@ so far this api has the following functionalitys:
 * [Decrypt a bytes array (using cryptography.fernet library)](#decrypting-data)
 * [MysqlClient custom object for faster integration (using mysql-client library)](#using-the-custom-mysql-client-object)
 * [Convert a variable to a string (UTF-8) (Built in Python 3.x libraries)](#converting-a-variable-to-string)
-* [Sending an email using google mail smtp](#using-the-custom-google-smtp-email-sender-object)
+* [Sending an email using google mail smtp (Built in Python 3.x smtplib library)](#using-the-custom-google-mail-smtp-email-sender-object)
 
 to install the latest version of this module, simply use pip to install it
 
