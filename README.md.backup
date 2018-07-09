@@ -47,7 +47,7 @@ encrypted_data = pyTAPI.encrypt_data(_key, _data)
 
 ```
 
-where `_key` is a fernet key and where `_data` is a bytes array
+where `_key` is a fernet key and where ``_data` is a bytes array
 
 ### Decrypting Data
 
