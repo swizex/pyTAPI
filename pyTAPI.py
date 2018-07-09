@@ -50,4 +50,11 @@ def decrypt_data(_key, _token):  # decrypts data using fernet decryption (symmet
     return _decrypted_data
 
 
+def Tostring(_var):
+
+    temp01 = _var.decode('UTF-8')
+
+    return temp01
+
+
 # written by teddy morduhovich,2018

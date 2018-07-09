@@ -13,6 +13,10 @@ so far this api has the following functionalitys:
 * Decrypt a bytes array (using cryptography.fernet library)
 * MysqlClient custom object for faster integration (using mysql-client library)
 
+to install the latest version of this module, simply use pip to install it
+
+`pip install pyTAPI`
+
 ## Example Usages
 
 ### Generating a hash
@@ -83,5 +87,16 @@ _session.query('')  # querying database
 _result = _session.store_result()  # store the results
 
 _row = _result.fetch_row()  # fetching a row
+
+```
+
+### Converting a variable to string
+
+use the following command to convert any variable to string format (UTF-8):
+
+```python
+_example_var = b'message'
+
+_str_converted = pyTAPI.Tostring(_example_var)
 
 ```
