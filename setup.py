@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyTAPI",
-    version="0.0.3",
+    version="0.0.4",
     author="Teddy Morduhovich",
     author_email="swizex@gmail.com",
     description="a general purpose/random stuff api i made for myself",

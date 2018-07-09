@@ -13,6 +13,7 @@ so far this api has the following functionalitys:
 * [Decrypt a bytes array (using cryptography.fernet library)](#decrypting-data)
 * [MysqlClient custom object for faster integration (using mysql-client library)](#using-the-custom-mysql-client-object)
 * [Convert a variable to a string (UTF-8) (Built in Python 3.x libraries)](#converting-a-variable-to-string)
+* [Sending an email using google mail smtp](using-the-custom-google-smtp-email-sender-object)
 
 to install the latest version of this module, simply use pip to install it
 
@@ -99,5 +100,27 @@ use the following command to convert any variable to string format (UTF-8):
 _example_var = b'message'
 
 _str_converted = pyTAPI.Tostring(_example_var)
+
+```
+
+### Using the custom google mail smtp email sender object
+
+to send an email using google smtp use the following commands:
+
+```python
+
+gmail = pyTAPI.GoogleMail()  # declaring custom object
+
+gmail.sender = '***@gmail.com'  # account the email will display as sender
+gmail.login = '***@gmail.com'  # account that is used to send the email
+gmail.password = '***'  # password of the account that is used to send the email
+gmail.to = '***@gmail.com'  # email to (this is an array variable, multiple senders possible)
+gmail.subject = 'SUBJECT'  # subject of the email
+gmail.content = 'CONTENT'  # contents of the email
+
+temp = gmail.send()  # send the email
+
+print(temp)  # debugging purposes
+
 
 ```
