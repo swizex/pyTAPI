@@ -14,6 +14,7 @@ so far this api has the following functionalitys:
 * [MysqlClient custom object for faster integration (using mysql-client library)](#using-the-custom-mysql-client-object)
 * [Convert a variable to a string (UTF-8) (Built in Python 3.x libraries)](#converting-a-variable-to-string)
 * [Sending an email using google mail smtp (Built in Python 3.x smtplib library)](#using-the-custom-google-mail-smtp-email-sender-object)
+* [tor requests (using requests library)](#using-tor-requests)
 
 to install the latest version of this module, simply use pip to install it
 
@@ -124,3 +125,15 @@ print(temp)  # debugging purposes
 
 
 ```
+
+### Using tor requests
+
+to request something via the tor network, simply have a local tor instance running and use the following commands:
+
+```python
+
+res = pyTAPI.tor_request('url', 'type')  # types: 'text','content','links'
+
+```
+
+function returns a text version of the reply if reply type is set to `text`, returns contents of the request if set to `content`, returns links if set to `links`

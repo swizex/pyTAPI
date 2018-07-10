@@ -3,11 +3,31 @@ import MySQLdb
 from flask_hashing import Hashing
 import smtplib
 from email.message import EmailMessage
-
+import requests
 hashing = Hashing()
 
 
 # note to myself, this is using mysqlclient-1.3.12
+
+def tor_request(url, reply_type):
+    try:
+        session = requests.session()
+        session.proxies = {}
+        session.proxies['http'] = 'socks5h://localhost:9150'
+        session.proxies['https'] = 'socks5h://localhost:9150'
+
+        if reply_type == 'text':
+            _res = session.get(url).text
+
+        if reply_type == 'content':
+            _res = session.get(url).content
+
+        if reply_type == 'links':
+            _res = session.get(url).links
+
+        return _res
+    except Exception as e:
+        return e.__str__()
 
 
 class MysqlConnector(object):
