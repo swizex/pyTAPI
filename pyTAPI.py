@@ -2,7 +2,6 @@ from cryptography.fernet import Fernet
 import MySQLdb
 from flask_hashing import Hashing
 import smtplib
-from email.mime.text import MIMEText
 from email.message import EmailMessage
 
 hashing = Hashing()
@@ -24,9 +23,12 @@ class MysqlConnector(object):
         _connector.password = self.password
         _connector.database_name = self.database_name
 
-        db = MySQLdb.connect(host=_connector.server, user=_connector.username, passwd=_connector.password, db=_connector.database_name)
+        try:
+            db = MySQLdb.connect(host=_connector.server, user=_connector.username, passwd=_connector.password, db=_connector.database_name)
+            return db
 
-        return db
+        except Exception as e:
+            return 'failed to connect to database!' + e.__str__()
 
 
 class GoogleMail(object):
@@ -52,18 +54,6 @@ class GoogleMail(object):
 
             server_ssl.login(_object._login, _object._password)
 
-            #temp_string = """
-            #From: %s <%s>
-            #To: <%s>
-            #Subject: <%s>
-            #
-            #%s
-            #""" % (_object.sender, _object.sender, " , ".join(_object.to), _object.subject, _object.content)
-
-            #print(temp_string)
-
-            #server_ssl.sendmail(_object.sender, _object.to, temp_string)
-
             msg = EmailMessage()
 
             msg['Subject'] = _object.subject
@@ -83,11 +73,13 @@ class GoogleMail(object):
 
 def generate_hash(_content, _salt):  # generates a random hash...
     h = hashing.hash_value(_content, _salt)
+
     return h
 
 
 def generate_key():  # generates a random key...
     _key = Fernet.generate_key()
+
     return _key
 
 
