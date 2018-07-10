@@ -94,7 +94,7 @@ _row = _result.fetch_row()  # fetching a row
 
 ### Converting a variable to string
 
-use the following command to convert any variable to string format (UTF-8):
+use the following command to convert any variable (that has a .decode() function) to string format (UTF-8):
 
 ```python
 _example_var = b'message'

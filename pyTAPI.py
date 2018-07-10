@@ -3,6 +3,7 @@ import MySQLdb
 from flask_hashing import Hashing
 import smtplib
 from email.mime.text import MIMEText
+from email.message import EmailMessage
 
 hashing = Hashing()
 
@@ -38,10 +39,10 @@ class GoogleMail(object):
 
     def send(self):
         _object = GoogleMail()
-        _object._from = self.sender
-        _object._to = self.to
+        _object.sender = self.sender
+        _object.to = self.to
         _object.subject = self.subject
-        _object._content = self.content
+        _object.content = self.content
         _object._login = self.login
         _object._password = self.password
 
@@ -51,15 +52,26 @@ class GoogleMail(object):
 
             server_ssl.login(_object._login, _object._password)
 
-            msg = MIMEText(_object.content)
+            #temp_string = """
+            #From: %s <%s>
+            #To: <%s>
+            #Subject: <%s>
+            #
+            #%s
+            #""" % (_object.sender, _object.sender, " , ".join(_object.to), _object.subject, _object.content)
+
+            #print(temp_string)
+
+            #server_ssl.sendmail(_object.sender, _object.to, temp_string)
+
+            msg = EmailMessage()
 
             msg['Subject'] = _object.subject
             msg['From'] = _object.sender
-            msg['To'] = ", ".join(_object.to)
+            msg['To'] = _object.to
+            msg.set_content('From: %s \n' % _object.sender + _object.content)
 
-            print(msg.as_string())
-
-            server_ssl.sendmail(_object.sender, _object.to, msg.as_string())
+            server_ssl.send_message(msg, _object.sender, _object.to)
 
             server_ssl.quit()
 
