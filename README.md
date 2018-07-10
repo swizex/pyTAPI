@@ -114,7 +114,7 @@ gmail = pyTAPI.GoogleMail()  # declaring custom object
 gmail.sender = '***@gmail.com'  # account the email will display as sender
 gmail.login = '***@gmail.com'  # account that is used to send the email
 gmail.password = '***'  # 2-step verification app password
-gmail.to = '***@gmail.com'  # email to (this is an array variable, multiple senders possible)
+gmail.to = '***@gmail.com'  # email to (this is an array variable, multiple recipients possible)
 gmail.subject = 'SUBJECT'  # subject of the email
 gmail.content = 'CONTENT'  # contents of the email
 
