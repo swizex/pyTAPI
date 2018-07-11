@@ -16,6 +16,7 @@ so far this api has the following functionalitys:
 * [Sending an email using google mail smtp (Built in Python 3.x smtplib library)](#using-the-custom-google-mail-smtp-email-sender-object)
 * [tor requests (using requests library)](#using-tor-requests)
 * [Sending HTML using google mail smtp (Built in Python 3.x smtplib library)](#sending-html-email-using-the-custom-google-mail-smtp-sender-object)
+* []Sending custom HTML CSS3 using google mail smtp(Built in Python 3.x smtplib library)](#sending-custom-html-css3-email-using-the-custom-google-mail-smtp-sender-object)
 
 to install the latest version of this module, simply use pip to install it
 
@@ -154,6 +155,30 @@ gmail.content = '<h1>HTML VERSION YUHU</h1>'  # contents of the email (HTML)
 gmail.plain = 'PLAIN VERSION'  # (plain version of the HTML content)
 
 temp = gmail.sendhtml()  # send the email
+
+print(temp)  # debugging purposes
+
+
+```
+
+### Sending custom HTML CSS3 email using the custom google mail smtp sender object
+
+```python
+
+gmail = pyTAPI.GoogleMail()  # declaring custom object
+
+gmail.sender = '****@***.***'  # account the email will display as sender
+gmail.login = '***@gmail.com'  # account that is used to send the email
+gmail.password = '***'  # 2-step verification app password
+gmail.to = '***@gmail.com'  # email to (this is an array variable, multiple recipients possible)
+gmail.subject = 'sent programmatically using the pyTAPI library!'  # subject of the email
+gmail.content = '<div class="container"><h1>Bootstrap content!</h1></div>'  # contents of the email (HTML)
+gmail.plain = 'PLAIN VERSION'  # (plain version of the HTML content)
+gmail.style = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">'
+gmail.meta = '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
+gmail.title = '<title>TITLE!</title>'
+
+temp = gmail.sendcustomhtml()  # send the email
 
 print(temp)  # debugging purposes
 

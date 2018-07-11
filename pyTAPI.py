@@ -63,6 +63,9 @@ class GoogleMail(object):
     login = ''
     password = ''
     plain = ''
+    style = ''
+    meta = ''
+    title = ''
 
     def send(self):
         _object = GoogleMail()
@@ -126,6 +129,66 @@ class GoogleMail(object):
               </body>
             </html>
             """ % _object.content
+
+            # Record the MIME types of both parts - text/plain and text/html.
+            part1 = MIMEText(text, 'plain')
+            part2 = MIMEText(html, 'html')
+
+            # Attach parts into message container.
+            # According to RFC 2046, the last part of a multipart message, in this case
+            # the HTML message, is best and preferred.
+            msg.attach(part1)
+            msg.attach(part2)
+
+            server_ssl.sendmail(_object.sender, _object.to, msg.as_string())
+
+            server_ssl.quit()
+
+            return 'sent mail successfully!'
+
+        except Exception as e:
+            return 'failed to send mail! Exception: ' + e.args.__str__() + 'Error on line {}'.format(sys.exc_info()[-1].tb_lineno)
+
+    def sendcustomhtml(self):
+        _object = GoogleMail()
+        _object.sender = self.sender
+        _object.to = self.to
+        _object.subject = self.subject
+        _object.content = self.content
+        _object._login = self.login
+        _object._password = self.password
+        _object.plain = self.plain
+        _object.style = self.style
+        _object.meta = self.meta
+        _object.title = self.title
+
+        try:
+            server_ssl = smtplib.SMTP_SSL('smtp.gmail.com', 465)  # ssl connection
+            server_ssl.ehlo()
+
+            server_ssl.login(_object._login, _object._password)
+
+            msg = MIMEMultipart('alternative')
+            msg['Subject'] = _object.subject
+            msg['From'] = _object.sender
+            msg['To'] = _object.to
+
+            # Create the body of the message (a plain-text and an HTML version).
+            text = _object.plain
+            html = """\
+            <html>
+              <head>
+              %s
+              
+              %s
+              
+              %s
+              </head>
+              <body>
+                    %s
+              </body>
+            </html>
+            """ % (_object.title, _object.meta, _object.style, _object.content)
 
             # Record the MIME types of both parts - text/plain and text/html.
             part1 = MIMEText(text, 'plain')
