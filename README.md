@@ -17,6 +17,7 @@ so far this api has the following functionalitys:
 * [tor requests (using requests library)](#using-tor-requests)
 * [Sending HTML using google mail smtp (Built in Python 3.x smtplib library)](#sending-html-email-using-the-custom-google-mail-smtp-sender-object)
 * [Sending custom HTML CSS3 using google mail smtp(Built in Python 3.x smtplib library)](#sending-custom-html-css3-email-using-the-custom-google-mail-smtp-sender-object)
+* [Using the markdown parser (Using the Mistune library)](#using-the-markdown-parser)
 
 to install the latest version of this module, simply use pip to install it
 
@@ -182,5 +183,17 @@ temp = gmail.sendcustomhtml()  # send the email
 
 print(temp)  # debugging purposes
 
+
+```
+
+### Using the markdown parser
+
+```python
+
+somestring = 'this is **some** string with markdown'  # string with markdown formatting
+
+temp01 = pyTAPI.markdown_converter(somestring)  # parsing the string
+
+print(temp01)  # printing parsed string
 
 ```
