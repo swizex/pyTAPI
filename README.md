@@ -137,3 +137,24 @@ res = pyTAPI.tor_request('url', 'type')  # types: 'text','content','links'
 ```
 
 function returns a text version of the reply if reply type is set to `text`, returns contents of the request if set to `content`, returns links if set to `links`
+
+### Sending HTML email using the custom google mail smtp sender object
+
+```python
+
+gmail = pyTAPI.GoogleMail()  # declaring custom object
+
+gmail.sender = '***@***.***'  # account the email will display as sender
+gmail.login = '***@gmail.com'  # account that is used to send the email
+gmail.password = '***'  # 2-step verification app password
+gmail.to = '***@gmail.com'  # email to (this is an array variable, multiple recipients possible)
+gmail.subject = 'sent programmatically using the pyTAPI library!'  # subject of the email
+gmail.content = '<h1>HTML VERSION YUHU</h1>'  # contents of the email (HTML)
+gmail.plain = 'PLAIN VERSION'  # (plain version of the HTML content)
+
+temp = gmail.sendhtml()  # send the email
+
+print(temp)  # debugging purposes
+
+
+```
