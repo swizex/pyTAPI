@@ -15,6 +15,7 @@ so far this api has the following functionalitys:
 * [Convert a variable to a string (UTF-8) (Built in Python 3.x libraries)](#converting-a-variable-to-string)
 * [Sending an email using google mail smtp (Built in Python 3.x smtplib library)](#using-the-custom-google-mail-smtp-email-sender-object)
 * [tor requests (using requests library)](#using-tor-requests)
+* [Sending HTML using google mail smtp (Built in Python 3.x smtplib library)](#sending-html-email-using-the-custom-google-mail-smtp-sender-object)
 
 to install the latest version of this module, simply use pip to install it
 
