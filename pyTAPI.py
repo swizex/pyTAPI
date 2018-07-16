@@ -8,11 +8,22 @@ from email.mime.multipart import MIMEMultipart
 import requests
 import sys
 import mistune
+from pygments import highlight
+from pygments.lexers.python import PythonLexer
+from pygments.formatters.html import HtmlFormatter
 
 hashing = Hashing()
 
 # note to myself, this is using mysqlclient-1.3.12
 
+
+def generate_highlight(_code):
+
+    _formatter = HtmlFormatter(style='default', linenos=False, noclasses=True)
+
+    temp01 = highlight(_code, PythonLexer(), _formatter)
+
+    return temp01
 
 def markdown_converter(_string):
     markdown = mistune.Markdown()
