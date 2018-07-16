@@ -18,7 +18,7 @@ so far this api has the following functionalitys:
 * [Sending HTML using google mail smtp (Built in Python 3.x smtplib library)](#sending-html-email-using-the-custom-google-mail-smtp-sender-object)
 * [Sending custom HTML CSS3 using google mail smtp(Built in Python 3.x smtplib library)](#sending-custom-html-css3-email-using-the-custom-google-mail-smtp-sender-object)
 * [Using the markdown parser (Using the Mistune library)](#using-the-markdown-parser)
-* [Using the python highlighter (Using the pygments library)](#using-the-python-highlighter)
+*[Using the python highlighter (Using the pygments library)](#using-the-python-highlighter)
 
 to install the latest version of this module, simply use pip to install it
 
@@ -199,6 +199,9 @@ print(temp01)  # printing parsed string
 
 ```
 
+where `somestring` is a string that contains text with markdown symbols arranged in it.
+returns HTML elements versions of the inputted string.
+
 ### Using the python highlighter
 
 ```python
@@ -209,3 +212,5 @@ temp01 = pyTAPI.generate_highlight(_code)
 
 print(temp01)
 ```
+
+where `_code` is a string containing the code snippet, returns HTML elements version of the inputted string.
