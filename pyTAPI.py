@@ -18,9 +18,16 @@ hashing = Hashing()
 # note to myself, this is using mysqlclient-1.3.12
 
 
-def generate_uuid():
+def generate_uuid():  # generates random uuid
 
     _uuid = uuid.uuid4()
+
+    return _uuid
+
+
+def generate_string_uuid(_string):  # generates a uuid based on a string
+
+    _uuid = uuid.UUID(bytes=_string.bytes)
 
     return _uuid
 

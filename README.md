@@ -223,3 +223,16 @@ where `_code` is a string containing the code snippet, returns HTML elements ver
 _uuid = pyTAPI.generate_uuid()
 
 ```
+
+### Generating uuid based on a string
+
+```python
+
+_string = 'some string'
+
+_uuid = pyTAPI.generate_string_uuid(_string)
+
+
+```
+
+where `_string` is the variable containing the string you want to base the uuid on.
