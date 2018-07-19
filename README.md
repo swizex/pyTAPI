@@ -20,6 +20,7 @@ so far this api has the following functionalitys:
 * [Using the markdown parser (Using the Mistune library)](#using-the-markdown-parser)
 * [Using the python highlighter (Using the pygments library)](#using-the-python-highlighter)
 * [Generating a random uuid (Using the uuid library)](#generating-a-random-uuid)
+* [Generating a uuid based on a string (Using the uuid library)](#generating-uuid-based-on-a-string)
 
 to install the latest version of this module, simply use pip to install it
 
