@@ -2,4 +2,4 @@ flask_hashing
 cryptography
 mysql-client
 requests
-pygments
+uuid

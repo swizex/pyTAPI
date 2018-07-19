@@ -11,10 +11,18 @@ import mistune
 from pygments import highlight
 from pygments.lexers.python import PythonLexer
 from pygments.formatters.html import HtmlFormatter
+import uuid
 
 hashing = Hashing()
 
 # note to myself, this is using mysqlclient-1.3.12
+
+
+def generate_uuid():
+
+    _uuid = uuid.uuid4()
+
+    return _uuid
 
 
 def generate_highlight(_code):
@@ -24,6 +32,7 @@ def generate_highlight(_code):
     temp01 = highlight(_code, PythonLexer(), _formatter)
 
     return temp01
+
 
 def markdown_converter(_string):
     markdown = mistune.Markdown()

@@ -19,6 +19,7 @@ so far this api has the following functionalitys:
 * [Sending custom HTML CSS3 using google mail smtp(Built in Python 3.x smtplib library)](#sending-custom-html-css3-email-using-the-custom-google-mail-smtp-sender-object)
 * [Using the markdown parser (Using the Mistune library)](#using-the-markdown-parser)
 * [Using the python highlighter (Using the pygments library)](#using-the-python-highlighter)
+* [Generating a random uuid (Using the uuid library)](#generating-a-random-uuid)
 
 to install the latest version of this module, simply use pip to install it
 
@@ -214,3 +215,11 @@ print(temp01)
 ```
 
 where `_code` is a string containing the code snippet, returns HTML elements version of the inputted string.
+
+### Generating a random uuid
+
+```python
+
+_uuid = pyTAPI.generate_uuid()
+
+```
