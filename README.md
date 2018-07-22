@@ -21,6 +21,8 @@ so far this api has the following functionalitys:
 * [Using the python highlighter (Using the pygments library)](#using-the-python-highlighter)
 * [Generating a random uuid (Using the uuid library)](#generating-a-random-uuid)
 * [Generating a uuid based on a string (Using the uuid library)](#generating-uuid-based-on-a-string)
+* [Converting a string to binary (Using built-in python 3.x libraries)](#converting-a-string-to-binary-of-itself)
+* [Convering binary back to a string (Using built-in python 3.x libraries)](#converting-binary-back-to-an-ascii-string)
 
 to install the latest version of this module, simply use pip to install it
 
@@ -237,3 +239,35 @@ _uuid = pyTAPI.generate_string_uuid(_string)
 ```
 
 where `_string` is the variable containing the string you want to base the uuid on.
+
+### Converting a string to binary of itself
+
+```python
+
+_str = 'im a string'
+
+_temp = pyTAPI.string_to_binary(_str)
+
+print(_temp)
+
+>>> 0b110100101101101001000000110000100100000011100110111010001110010011010010110111001100111
+
+```
+
+where `_str` is your string
+
+### Converting binary back to an ASCII string
+
+```python
+
+_binary = '0b110100101101101001000000110000100100000011100110111010001110010011010010110111001100111'
+
+_temp = pyTAPI.binary_to_string(_binary)
+
+print(_temp)
+
+>>> im a string
+
+```
+
+where `_binary` is your binary string generated from converting a string to binary previously above.

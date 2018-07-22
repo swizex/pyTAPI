@@ -18,6 +18,19 @@ hashing = Hashing()
 # note to myself, this is using mysqlclient-1.3.12
 
 
+def string_to_binary(_str):  # encodes any string to binary
+    _temp = bin(int.from_bytes(_str.encode(), 'big'))
+
+    return _temp
+
+
+def binary_to_string(_binary):  # decodes any binary back to actual ascii string representation of the binary
+    n = int(_binary, 2)
+    _temp04 = n.to_bytes((n.bit_length() + 7) // 8, 'big').decode()
+
+    return _temp04.__str__()
+
+
 def generate_uuid():  # generates random uuid
 
     _uuid = uuid.uuid4()
