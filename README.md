@@ -23,6 +23,7 @@ so far this api has the following functionalitys:
 * [Generating a uuid based on a string (Using the uuid library)](#generating-uuid-based-on-a-string)
 * [Converting a string to binary (Using built-in python 3.x libraries)](#converting-a-string-to-binary-of-itself)
 * [Converting binary back to a string (Using built-in python 3.x libraries)](#converting-binary-back-to-an-ascii-string)
+* [Encrypting/Decrypting a string using the custom AES-128 encryption object](#encrypting/decrypting-data-using-the-custom-aes-128-encryption-object)
 
 to install the latest version of this module, simply use pip to install it
 
@@ -271,3 +272,34 @@ print(_temp)
 ```
 
 where `_binary` is your binary string generated from converting a string to binary previously above.
+
+### Encrypting/Decrypting data using the custom AES-128 encryption object
+
+```python
+from pyTAPI import AESEncryption
+
+ _key = 'UpImX6e1zrPhfSuoN3Bnr7r4S72bp2l7'
+ _data = 'just some data'
+ print('raw: ')
+ print('key - ' + _key)
+ print('data - ' + _data)
+ print('Encrypted: ')
+
+ _aes = AESEncryption()
+ _aes.key = _key
+
+ _token = _aes.encrypt(_data)
+
+ print('data - ' + _token.__str__())
+
+ print('decrypted:')
+
+ _aes_dec = AESEncryption()
+ _aes_dec.key = _key
+ _decrypted_token = _aes_dec.decrypt(_token)
+
+ print('data - ' + _decrypted_token.decode())
+
+```
+
+where `_key` is your 16bit encryption key and where `_data` is the data you want to encrypt/decrypt (as string)

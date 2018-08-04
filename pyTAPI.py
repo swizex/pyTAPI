@@ -12,10 +12,41 @@ from pygments import highlight
 from pygments.lexers.python import PythonLexer
 from pygments.formatters.html import HtmlFormatter
 import uuid
+from Crypto.Random import get_random_bytes
+from Crypto.Cipher import AES
 
 hashing = Hashing()
 
 # note to myself, this is using mysqlclient-1.3.12
+
+
+class AESEncryption(object):  # AES 128 encryption object
+    key = ''
+
+    def encrypt(self, _data):
+        _key = self.key
+
+        data = bytearray(_data, encoding='utf-8')
+
+        key = bytearray(_key, encoding='utf-8')
+        cipher = AES.new(key, AES.MODE_EAX)
+        ciphertext, tag = cipher.encrypt_and_digest(data)
+
+        token = {'nonce': cipher.nonce, 'tag': tag, 'ciphertext': ciphertext}
+
+        return token
+
+    def decrypt(self, _token):
+        _key = self.key
+        _nonce = _token['nonce']
+        _tag = _token['tag']
+        _ciphertext = _token['ciphertext']
+
+        _key_b = bytearray(_key, encoding='utf-8')
+        cipher = AES.new(_key_b, AES.MODE_EAX, _nonce)
+        data = cipher.decrypt_and_verify(_ciphertext, _tag)
+
+        return data
 
 
 def string_to_binary(_str):  # encodes any string to binary

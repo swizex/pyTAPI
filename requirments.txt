@@ -3,3 +3,4 @@ cryptography
 mysql-client
 requests
 uuid
+pycryptodome
