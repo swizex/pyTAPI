@@ -5,4 +5,4 @@
 * Mysql-Client
 * Requests
 * UUID
-* PycryptoDome
+* PyCryptoDome
