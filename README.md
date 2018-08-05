@@ -304,8 +304,6 @@ from pyTAPI import AESEncryption
 printed result:
 
 ```python
-
-raw: just some data
 key - UpImX6e1zrPhfSuoN3Bnr7r4S72bp2l7
 data - just some data
 Encrypted: 
