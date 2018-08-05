@@ -280,7 +280,6 @@ from pyTAPI import AESEncryption
 
  _key = 'UpImX6e1zrPhfSuoN3Bnr7r4S72bp2l7'
  _data = 'just some data'
- print('raw: ' + _data)
  print('key - ' + _key)
  print('data - ' + _data)
  print('Encrypted: ')
