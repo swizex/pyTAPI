@@ -23,7 +23,7 @@ so far this api has the following functionalitys:
 * [Generating a uuid based on a string (Using the uuid library)](#generating-uuid-based-on-a-string)
 * [Converting a string to binary (Using built-in python 3.x libraries)](#converting-a-string-to-binary-of-itself)
 * [Converting binary back to a string (Using built-in python 3.x libraries)](#converting-binary-back-to-an-ascii-string)
-* [Encrypting and decrypting a string using the custom AES-128 encryption object](#encrypting-and-decrypting-data-using-the-custom-aes-128-encryption-object)
+* [Encrypting and decrypting a string using the custom AES-128 encryption object (Using pyCryptoDome library)](#encrypting-and-decrypting-data-using-the-custom-aes-128-encryption-object)
 
 to install the latest version of this module, simply use pip to install it
 
